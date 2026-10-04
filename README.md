@@ -1,88 +1,36 @@
-# ModernCommerce Starter
+# Luma Table — Restaurant Website Template
 
-A polished e-commerce starter template built for customization and resale.
+A premium responsive restaurant website template built with Next.js and TypeScript.
 
-## Product
+## Included
+- Home, Menu, About, Gallery and Contact pages
+- Reservation form with Processing and Success states
+- FAQ accordion
+- Mobile navigation
+- Scroll animations with reduced-motion support
+- Cookie notice and Cookie Policy
+- Privacy Policy and Terms pages
+- Custom 404 page
+- Responsive layouts and accessible form labels
+- SEO metadata
+- Static export for simple hosting
+- GitHub Actions build verification
 
-- Responsive storefront
-- Private server-protected Admin
-- Product CRUD
-- Demo Mode
-- Firebase/Firestore adapter
-- Generic REST data adapter
-- Provider-neutral payment API
-- Storage and email provider variables
-- GitHub Actions CI
-- Static visual demo for GitHub Pages
-- Customer guides in English and Portuguese
+## Customize
+Replace the demo brand, images, menu, prices, contacts, opening hours and legal copy. The reservation/contact flows are intentionally front-end demos; connect them to your preferred booking provider, email service, CRM or backend.
 
-## Quick start
-
+## Run
 ```bash
 npm install
 npm run dev
-```
-
-Open http://localhost:3000.
-
-## Customer documentation
-
-- [Customer Guide — English](docs/README.en-US.md)
-- [Guia do Cliente — Português](docs/README.pt-BR.md)
-- [API Reference — English](docs/API.en-US.md)
-- [Referência de API — Português](docs/API.pt-BR.md)
-- [Environment & Secrets](docs/ENVIRONMENT.md)
-- [GitHub Pages Demo — English](docs/GITHUB-PAGES.en-US.md)
-- [GitHub Pages Demo — Português](docs/GITHUB-PAGES.pt-BR.md)
-
-## Private Admin
-
-The owner signs in at `/admin/login`.
-
-Server-only variables:
-
-```env
-ADMIN_EMAIL=
-ADMIN_PASSWORD=
-SESSION_SECRET=
-```
-
-Real secrets must be supplied through the deployment platform's environment/secrets manager and must never be committed.
-
-## Provider-neutral architecture
-
-Built-in data modes:
-
-- `demo`
-- `firebase`
-- `rest`
-
-The REST mode expects a products API at `DATA_API_BASE_URL` + `DATA_PRODUCTS_PATH` and uses `DATA_API_KEY` server-side.
-
-Payment endpoints:
-
-- `POST /api/payments/create-checkout`
-- `POST /api/payments/webhook`
-
-Payment, storage and email credentials are server-side environment variables.
-
-## Demo
-
-The static design preview lives in `demo/`.
-
-After one-time GitHub Pages activation, the expected preview URL is:
-
-https://nexauren1.github.io/modern-ecommerce-starter/
-
-The Pages demo is a visual preview only. The complete application requires server-side Next.js hosting for Admin, APIs, data and payment webhooks.
-
-## Build verification
-
-GitHub Actions runs:
-
-```bash
-npm install
 npm run build
 ```
 
-The latest successful build has been verified by GitHub Actions before this documentation update.
+The production export is generated in `out/`.
+
+## Structure
+- `app/` routes
+- `components/` reusable UI and interactions
+- `lib/content.ts` editable demo content
+- `app/globals.css` visual system
+- `.github/workflows/build.yml` build check
