@@ -10,10 +10,12 @@ A polished e-commerce starter template built for customization and resale.
 - Responsive storefront
 - Demo product catalog
 - Shop page
-- Admin dashboard foundation
+- Private server-protected Admin
+- Secure HTTP-only signed admin session cookie
 - Demo Mode without a backend
 - Firebase-ready integration
 - Environment variable template
+- GitHub Actions build check
 
 ## Run locally
 
@@ -23,6 +25,24 @@ npm run dev
 ```
 
 Open http://localhost:3000.
+
+## Private Admin
+
+The owner enters the private Admin at:
+
+`/admin/login`
+
+Configure these **server-only** variables:
+
+```env
+ADMIN_EMAIL=owner@example.com
+ADMIN_PASSWORD=choose-a-long-private-password
+SESSION_SECRET=generate-a-long-random-secret
+```
+
+Do not add `NEXT_PUBLIC_` to these three values. They must never be committed to GitHub.
+
+The authentication flow creates an HTTP-only, Secure-in-production, SameSite=Strict signed session cookie. The protected dashboard is under the `/admin` route group and redirects unauthenticated visitors to the login page.
 
 ## Firebase
 
@@ -54,6 +74,7 @@ Official guide: https://firebase.google.com/docs/web/setup
 - Inventory
 - Store settings
 - Backend setup wizard
+- Firebase/Firestore persistence
 
 ### Product goal
 
