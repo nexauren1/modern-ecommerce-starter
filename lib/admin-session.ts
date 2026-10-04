@@ -35,7 +35,7 @@ export function verifyAdminSession(token?: string | null) {
     if (!valid) return null;
     const data = JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as { email?: string; expiresAt?: number };
     if (!data.email || !data.expiresAt || data.expiresAt < Date.now()) return null;
-    if (data.email !== ownerEmail) return null;
+    if (data.email.toLowerCase() !== ownerEmail.toLowerCase()) return null;
     return { email: data.email, expiresAt: data.expiresAt };
   } catch {
     return null;
@@ -44,5 +44,5 @@ export function verifyAdminSession(token?: string | null) {
 
 export function credentialsMatch(email: string, password: string) {
   const config = getAdminConfig();
-  return email === config.email && password === config.password;
+  return email.toLowerCase() === config.email.toLowerCase() && password === config.password;
 }
