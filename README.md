@@ -34,3 +34,5 @@ The production export is generated in `out/`.
 - `lib/content.ts` editable demo content
 - `app/globals.css` visual system
 - `.github/workflows/build.yml` build check
+
+Build verification is configured to run on every push to `main`.
